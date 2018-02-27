@@ -9,7 +9,7 @@ class PostsNew extends Component {
     renderField(field) {
         const { meta: { touched, error } } = field;
         const className = `form-group ${touched && error ? 'has-danger' : ''}`;
-        //console.log(field.meta);
+        console.log(field);
         return (
             <div className={className}>
                 <label>{field.label}</label>
@@ -23,7 +23,7 @@ class PostsNew extends Component {
 
     onSubmit(values) {
         console.log(values);
-        this.props.createPost(values, ()=> {
+        this.props.createPost(values, () => {
             this.props.history.push('/');
         });
     }
@@ -70,4 +70,4 @@ export default reduxForm({
     validate: validateForm
 })(
     connect(null, { createPost })(PostsNew)
-);
+    );
