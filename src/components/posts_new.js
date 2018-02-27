@@ -33,10 +33,11 @@ class PostsNew extends Component {
 
         return (
             <div>
+                <br />
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <h3>Create New Post!</h3>
                     <Field name="title" label="Title for Post" component={this.renderField} />
-                    <Field name="category" label="Categories" component={this.renderField} />
+                    <Field name="categories" label="Categories" component={this.renderField} />
                     <Field name="content" label="Post Content" component={this.renderField} />
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <Link className="btn btn-danger" to="/">Post List</Link>
@@ -54,8 +55,8 @@ function validateForm(values) {
         errors.title = "Enter a title!";
     }
 
-    if (!values.category) {
-        errors.category = "Enter a category!";
+    if (!values.categories) {
+        errors.categories = "Enter a category!";
     }
 
     if (!values.content) {
